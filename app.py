@@ -74,7 +74,7 @@ products_schema = ProductSchema(many=True)
 
 @app.route('/')
 def home():
-    return "If you are Lost, welcome to the Sauce!"
+    return "If you are Lost, were all lost! Welcome to the party"
 
 @app.route("/customers", methods=['GET'])
 def get_customers():
@@ -210,6 +210,20 @@ def order_items(id):
     query = select(Orders).filter(Orders.id == id)
     order = db.session.execute(query).scalar()
     return products_schema.jsonify(order.products)
+
+@app.route('/orders/track/<int:id>', methods=['GET'])
+def track_order(id):
+    query = select(Orders).filter(Orders.id == id)
+    result = db.session.execute(query).scalar()
+    if result is None:
+        return jsonify({"Error": "Order not found"}), 404
+    order_data = {
+        "id": result.id,
+        "order_date": result.order_date,
+        "customer_id": result.customer_id,}
+        
+    return jsonify(order_data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
