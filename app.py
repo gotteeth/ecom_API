@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class Base(DeclarativeBase):
     pass
+    
 
 db = SQLAlchemy(app, model_class=Base)
 ma = Marshmallow(app)
@@ -161,6 +162,7 @@ def update_product(id):
         setattr(product, field, value)
     db.session.commit()
     return jsonify({"Message": "Product details have been updated!"})
+
 
 @app.route('/products/<int:id>', methods=['DELETE'])
 def delete_product(id):
