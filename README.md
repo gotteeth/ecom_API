@@ -146,9 +146,7 @@ The application should now be running on `http://127.0.0.1:5000`.
 ## Bonus Features
 
 - Track Order: `GET /orders/track/<int:id>`
-- Order History: `GET /orders/history/<int:customer_id>`
-- Cancel Order: `DELETE /orders/<int:id>`
-- Calculate Order Total: `GET /orders/total/<int:id>`
+
 
 ## Testing
 
