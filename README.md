@@ -166,5 +166,5 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-If you have any questions, feel free to reach out to [your-email@example.com].
+If you have any questions, feel free to reach out to me.
 
